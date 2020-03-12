@@ -18,7 +18,7 @@ public class MarsBot extends Robot
 		// After trying out your robot, try uncommenting the import at the top,
 		// and the next line:
 		
-		//added default colors
+		//added default
 		setColors(Color.red,Color.red,Color.black); // body,gun,radar
 
 		// Robot main loop
