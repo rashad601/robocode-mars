@@ -5,7 +5,7 @@ import java.awt.Color;
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
 /**
- * MarsBot - a robot by (your name here)
+ * MarsBot - a robot by @moshi, @1myrtille and @Rashad for SD1 Robocode project
  */
 public class MarsBot extends Robot
 {
