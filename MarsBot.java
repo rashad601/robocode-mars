@@ -19,8 +19,12 @@ public class MarsBot extends Robot
 		// and the next line:
 		
 		//added default
-		setColors(Color.red,Color.black,Color.black); // body,gun,radar
-
+		//setColors(Color.red,Color.black,Color.black); // body,gun,radar
+		setBodyColor(new Color(128, 0, 0));
+		setGunColor(new Color(255, 69, 0));
+		setRadarColor(new Color(255, 0, 0));
+		setScanColor(Color.white);
+		setBulletColor(Color.black);
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
