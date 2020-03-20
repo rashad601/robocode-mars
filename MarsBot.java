@@ -36,7 +36,13 @@ public class MarsBot extends Robot
 	 */
 	public void onScannedRobot(ScannedRobotEvent e) {
 		// Replace the next line with any behavior you would like
-		fire(1);
+		//test or default method added to test fire method @1myrtille
+		if (getEnergy() < 40){
+			fire(1);
+		}
+		else {
+			fire(3);
+		}
 	}
 
 	/**
