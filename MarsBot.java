@@ -34,11 +34,19 @@ public class MarsBot extends Robot
 		gunTurnAmount = 20;
 		setAdjustGunForRobotTurn(true); //this allows robot to freely turn it's gun
 		while(true) {
-			// Replace the next 4 lines with any behavior you would like
-			ahead(100);
-			turnGunRight(360);
-			back(100);
-			turnGunRight(360);
+			// Replace the next 4 lines with any behavior you would like#
+			//@moshi - 
+			turnGunRight(gunTurnAmount);
+			count++;
+			if (count>2){
+				gunTurnAmount=-20;
+			}
+			if(count>5){
+				gunTurnAmount=20;
+			}
+			if (count>10){
+				trackedRobot=null;
+			}
 		}
 	}
 
