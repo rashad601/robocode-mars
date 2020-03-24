@@ -28,7 +28,11 @@ public class MarsBot extends Robot
 		setRadarColor(new Color(255, 0, 0));
 		setScanColor(new Color(255, 255, 255)); //changed by @moshi
 		setBulletColor(new Color(0, 0 , 0)); //changed by @moshi
-		// Robot main loop
+		
+		// @moshi - created default values 
+		trackedRobot = null;
+		gunTurnAmount = 20;
+		setAdjustGunForRobotTurn(true); //this allows robot to freely turn it's gun
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
 			ahead(100);
