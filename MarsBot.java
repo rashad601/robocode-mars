@@ -1,4 +1,4 @@
-package mars;
+package Mars;
 import robocode.*;
 import java.awt.Color;
 
@@ -23,8 +23,8 @@ public class MarsBot extends Robot
 		setBodyColor(new Color(128, 0, 0));
 		setGunColor(new Color(255, 69, 0));
 		setRadarColor(new Color(255, 0, 0));
-		setScanColor(Color.white);
-		setBulletColor(Color.black);
+		setScanColor(new Color(255, 255, 255)); //changed by @moshi
+		setBulletColor(new Color(0, 0 , 0)); //changed by @moshi
 		// Robot main loop
 		while(true) {
 			// Replace the next 4 lines with any behavior you would like
@@ -42,12 +42,13 @@ public class MarsBot extends Robot
 		// Replace the next line with any behavior you would like
 		//test or default method added to test fire method @1myrtille
 		if (getEnergy() < 40){
-			fire(1);
+			fire(2);
 		}
 		else {
-			fire(3);
+			fire(4);
 		}
 	}
+	
 
 	/**
 	 * onHitByBullet: What to do when you're hit by a bullet
