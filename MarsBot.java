@@ -88,4 +88,13 @@ public class MarsBot extends Robot
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
 		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
+	//@moshi
+	//when we win,it does a litle wiggle
+	public void onWin(WinEvent winEvent){
+		out.println("BOW DOWN BEFORE MARS!");
+		for (int i=0;i<20;i++){
+			turnLeft(35);
+			turnRight(35);
+		}
+	}
 }
