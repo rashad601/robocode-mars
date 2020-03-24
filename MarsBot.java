@@ -82,5 +82,10 @@ public class MarsBot extends Robot
 		// Replace the next line with any behavior you would like
 		back(20);
 		turnLeft(45);//@moshi
+	}
+
+	//@Rashad
+	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
+		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
 }
