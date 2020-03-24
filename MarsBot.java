@@ -71,6 +71,8 @@ public class MarsBot extends Robot
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
 		back(10);
+		turnLeft(45);// @Rashad
+	
 	}
 	
 	/**
