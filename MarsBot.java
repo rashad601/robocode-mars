@@ -1,6 +1,7 @@
 package Mars;
 import robocode.*;
 import java.awt.Color;
+import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
