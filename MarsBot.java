@@ -10,9 +10,11 @@ import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
  */
 public class MarsBot extends Robot
 {
-	/**
-	 * run: MarsBot's default behavior
-	 */
+	//@1myrtille initialized variable
+	int count = 0;
+	double gunTurnAmount;
+	String trackedRobot;
+	
 	public void run() {
 		// Initialization of the robot should be put here
 
