@@ -53,15 +53,40 @@ public class MarsBot extends Robot
 	/**
 	 * onScannedRobot: What to do when you see another robot
 	 */
-	public void onScannedRobot(ScannedRobotEvent e) {
-		// Replace the next line with any behavior you would like
-		//test or default method added to test fire method @1myrtille
-		if (getEnergy() < 40){
-			fire(2);
+	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
+		if (trackedRobot != null && !scannedRobotEvent.getName().equals(trackedRobot)) {
+			return;
 		}
-		else {
-			fire(4);
+		if (trackedRobot == null) {
+			trackedRobot = scannedRobotEvent.getName();
+			//out.println("Tracking " + trackedRobot);
 		}
+		count = 0;
+		if (scannedRobotEvent.getDistance() > 150) {
+			gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
+			turnGunRight(gunTurnAmount);
+			turnRight(scannedRobotEvent.getBearing());
+			ahead(scannedRobotEvent.getDistance() - 160);
+			return;
+		}
+		gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
+		turnGunRight(gunTurnAmount);
+		
+		if(getEnergy() < 30){
+			fire(1);
+		}
+		else{
+			fire(3);
+		}
+		
+		if (scannedRobotEvent.getDistance() < 100) {
+			if (scannedRobotEvent.getBearing() > -90 && scannedRobotEvent.getBearing() <= 90) {
+				back(80);
+			} else {
+				ahead(60);
+			}
+		}
+		scan();
 	}
 	
 
