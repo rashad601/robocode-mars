@@ -71,6 +71,7 @@ public class MarsBot extends Robot
 		}
 		gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurnAmount);
+		back(30);
 		
 		if(getEnergy() < 30){
 			fire(1);
@@ -90,6 +91,19 @@ public class MarsBot extends Robot
 	}
 	
 
+	public void onHitRobot(HitRobotEvent hitRobotEvent){
+		if (trackedRobot != null && !trackedRobot.equals(hitRobotEvent.getName())) {
+			//out.println("Tracking " + hitRobotEvent.getName() + " due to collision");
+		}
+		//Lock target
+		trackedRobot = hitRobotEvent.getName();
+		
+		gunTurnAmount = normalRelativeAngleDegrees(hitRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
+		turnGunRight(gunTurnAmount);
+		fire(4);
+		back(30);
+	}
+	
 	/**
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
