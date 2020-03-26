@@ -1,6 +1,6 @@
 package Mars;
 import robocode.*;
-import java.awt.Color;
+import java.awt.Color; //@1myrtille
 import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
@@ -50,9 +50,6 @@ public class MarsBot extends Robot
 		}
 	}
 
-	/**
-	 * onScannedRobot: What to do when you see another robot
-	 */
 	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
 		if (trackedRobot != null && !scannedRobotEvent.getName().equals(trackedRobot)) {
 			return;
@@ -90,7 +87,6 @@ public class MarsBot extends Robot
 		scan();
 	}
 	
-
 	public void onHitRobot(HitRobotEvent hitRobotEvent){
 		if (trackedRobot != null && !trackedRobot.equals(hitRobotEvent.getName())) {
 			//out.println("Tracking " + hitRobotEvent.getName() + " due to collision");
@@ -104,9 +100,6 @@ public class MarsBot extends Robot
 		back(30);
 	}
 	
-	/**
-	 * onHitByBullet: What to do when you're hit by a bullet
-	 */
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
 		back(10);
@@ -114,9 +107,6 @@ public class MarsBot extends Robot
 	
 	}
 	
-	/**
-	 * onHitWall: What to do when you hit a wall
-	 */
 	public void onHitWall(HitWallEvent e) {
 		// Replace the next line with any behavior you would like
 		back(20);
@@ -127,6 +117,7 @@ public class MarsBot extends Robot
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
 		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
+
 	//@moshi
 	//when we win,it does a litle wiggle
 	public void onWin(WinEvent winEvent){
