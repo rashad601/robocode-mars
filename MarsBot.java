@@ -64,25 +64,26 @@ public class MarsBot extends Robot
 			turnGunRight(gunTurnAmount);
 			turnRight(scannedRobotEvent.getBearing());
 			ahead(scannedRobotEvent.getDistance() - 160);
+			fire(2);
 			return;
 		}
 		gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurnAmount);
 		back(30);
 		
-		if(getEnergy() < 30){
-			fire(1);
-		}
-		else{
-			fire(3);
-		}
-		
+		//@1myrtille changed the way bullet firing works(test)
+		fire(3);
+
+		//@1myrtille edited to fire even if the robot is too close
 		if (scannedRobotEvent.getDistance() < 100) {
 			if (scannedRobotEvent.getBearing() > -90 && scannedRobotEvent.getBearing() <= 90) {
-				back(80);
+				back(40);
+				fire(2);
 			} else {
-				ahead(60);
+				ahead(40);
+				fire(2);
 			}
+			fire(2);
 		}
 		scan();
 	}
@@ -99,19 +100,21 @@ public class MarsBot extends Robot
 		fire(4);
 		back(30);
 	}
-	
+
+	//@1myrtille commented out turnLeft to fix not shooting bug(test)
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		back(10);
-		turnLeft(45);// @Rashad
-	
-	}
-	
-	public void onHitWall(HitWallEvent e) {
-		// Replace the next line with any behavior you would like
 		back(20);
-		turnLeft(45);//@moshi
+		// turnLeft(45);// @Rashad
+	
 	}
+	
+	//@1myrtille commented out onHitWall to fix not shooting bug(test)
+	// public void onHitWall(HitWallEvent e) {
+	// 	// Replace the next line with any behavior you would like
+	// 	back(20);
+	// 	// turnLeft(45);//@moshi
+	// }
 
 	//@Rashad
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
