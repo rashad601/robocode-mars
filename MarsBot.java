@@ -16,11 +16,7 @@ public class MarsBot extends Robot
 	String trackedRobot;
 	
 	public void run() {
-		// Initialization of the robot should be put here
-
-		// After trying out your robot, try uncommenting the import at the top,
-		// and the next line:
-		
+		int direction = 1; //@1myrtille initial direction
 		//added default
 		//added colors to use rgb values to suit red theme - @1myrtille
 		setBodyColor(new Color(128, 0, 0));
