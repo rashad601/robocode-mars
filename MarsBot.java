@@ -23,7 +23,7 @@ public class MarsBot extends Robot
 		setGunColor(new Color(255, 69, 0));
 		setRadarColor(new Color(255, 0, 0));
 		setScanColor(new Color(255, 255, 255)); //changed by @moshi
-		setBulletColor(new Color(0, 0 , 0)); //changed by @moshi
+		setBulletColor(new Color(128, 0 , 128)); //changed by @1myrtille
 		
 		// @moshi - created default values 
 		trackedRobot = null;
@@ -114,16 +114,11 @@ public class MarsBot extends Robot
 
 	//@Rashad
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
-		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
 
 	//@moshi
 	//when we win,it does a litle wiggle
 	public void onWin(WinEvent winEvent){
-		out.println("BOW DOWN BEFORE MARS!");
-		for (int i=0;i<20;i++){
-			turnLeft(35);
-			turnRight(35);
-		}
+		
 	}
 }
