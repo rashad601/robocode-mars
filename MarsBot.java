@@ -29,6 +29,8 @@ public class MarsBot extends AdvancedRobot
 		setScanColor(new Color(255, 255, 255)); //changed by @moshi
 		setBulletColor(new Color(128, 0 , 128)); //changed by @1myrtille
 		
+		 setMaxVelocity((12*Math.random())+12);
+		
 		// @moshi - created default values 
 		trackedRobot = null;
 		gunTurnAmount = 20;
@@ -104,6 +106,7 @@ public class MarsBot extends AdvancedRobot
 	//@1myrtille commented out turnLeft to fix not shooting bug(test)
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
+		direction=-direction;
 		back(20);
 		// turnLeft(45);// @Rashad
 	
