@@ -18,7 +18,11 @@ public class MarsBot extends AdvancedRobot
 	public void run() {
 		int direction = 1; //@1myrtille initial direction
 		//added default
+		 setAdjustRadarForRobotTurn(true);
+		turnRadarRightRadians(Double.POSITIVE_INFINITY);//ensures the radar keeps turning towards the right
+		setAdjustGunForRobotTurn(true); 
 		//added colors to use rgb values to suit red theme - @1myrtille
+
 		setBodyColor(new Color(128, 0, 0));
 		setGunColor(new Color(255, 69, 0));
 		setRadarColor(new Color(255, 0, 0));
