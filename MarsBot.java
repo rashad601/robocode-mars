@@ -8,7 +8,7 @@ import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
 /**
  * MarsBot - a robot by @moshi, @1myrtille and @Rashad for SD1 Robocode project
  */
-public class MarsBot extends Robot
+public class MarsBot extends AdvancedRobot
 {
 	//@1myrtille initialized variable
 	int count = 0;
