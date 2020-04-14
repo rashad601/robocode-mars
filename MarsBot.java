@@ -78,16 +78,10 @@ public class MarsBot extends AdvancedRobot
 	}
 	
 	public void onHitRobot(HitRobotEvent hitRobotEvent){
-		if (trackedRobot != null && !trackedRobot.equals(hitRobotEvent.getName())) {
-			//out.println("Tracking " + hitRobotEvent.getName() + " due to collision");
-		}
-		//Lock target
-		trackedRobot = hitRobotEvent.getName();
 		
-		gunTurnAmount = normalRelativeAngleDegrees(hitRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
+		gunTurnAmount = robocode.util.Utils.normalRelativeAngleDegrees(hitRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurnAmount);
-		fire(4);
-		back(30);
+		setFire(3);
 	}
 
 	//@1myrtille commented out turnLeft to fix not shooting bug(test)
@@ -115,4 +109,5 @@ public class MarsBot extends AdvancedRobot
 	public void onWin(WinEvent winEvent){
 		
 	}
+
 }
