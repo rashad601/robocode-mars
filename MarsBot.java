@@ -14,6 +14,7 @@ public class MarsBot extends AdvancedRobot
 	int count = 0;
 	double gunTurnAmount;
 	String trackedRobot;
+	int direction = 1;
 	
 	public void run() {
 		int direction = 1; //@1myrtille initial direction
@@ -81,7 +82,7 @@ public class MarsBot extends AdvancedRobot
 	// }
 
 	//@Rashad
-	public voud onHitWall(HitWallEvent hitWallEvent){
+	public void onHitWall(HitWallEvent hitWallEvent){
 		direction=-direction;
 	}
 
