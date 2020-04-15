@@ -38,7 +38,26 @@ public class MarsBot extends AdvancedRobot
 		}
 
 	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
-		
+		double absoluteBearing=scannedRobotEvent.getBearingRadians()+getHeadingRadians();//enemies absolute bearing
+        double latVel=scannedRobotEvent.getVelocity() * Math.sin(scannedRobotEvent.getHeadingRadians() -absoluteBearing);//enemies later velocity
+        setTurnRadarLeftRadians(getRadarTurnRemainingRadians());//lock on the radar
+        if(Math.random()>.9){
+            setMaxVelocity((12*Math.random())+12);//randomly change speed
+        }
+        if (scannedRobotEvent.getDistance() > 150) {//if distance is greater than 150
+            gunTurnAmount = robocode.util.Utils.normalRelativeAngle(absoluteBearing- getGunHeadingRadians()+latVel/22);//amount to turn our gun, lead just a little bit
+            setTurnGunRightRadians(gunTurnAmount); //turn our gun
+            setTurnRightRadians(robocode.util.Utils.normalRelativeAngle(absoluteBearing-getHeadingRadians()+latVel/getVelocity()));//drive towards the enemies predicted future location
+            setAhead((scannedRobotEvent.getDistance() - 140)*direction);//move forward
+            setFire(3);//fire
+        }
+        else{//if we are close enough...
+            gunTurnAmount = robocode.util.Utils.normalRelativeAngle(absoluteBearing- getGunHeadingRadians()+latVel/15);//amount to turn our gun, lead just a little bit
+            setTurnGunRightRadians(gunTurnAmount);//turn our gun
+            setTurnLeft(-90-scannedRobotEvent.getBearing()); //turn perpendicular to the enemy
+            setAhead((scannedRobotEvent.getDistance() - 140)*direction);//move forward
+            setFire(3);//fire
+        }
 	}
 	
 	public void onHitRobot(HitRobotEvent hitRobotEvent){
