@@ -105,7 +105,11 @@ public class MarsBot extends AdvancedRobot
 	//@moshi
 	//when we win,it does a litle wiggle
 	public void onWin(WinEvent winEvent){
-		
+		out.println("BOW DOWN BEFORE MARS!");
+		for (int i=0;i<20;i++){
+			turnLeft(35);
+			turnRight(35);
+		}	
 	}
 
 }
