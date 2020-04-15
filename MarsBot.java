@@ -17,8 +17,9 @@ public class MarsBot extends AdvancedRobot
 	
 	public void run() {
 		int direction = 1; //@1myrtille initial direction
-		//added default
-		 setAdjustRadarForRobotTurn(true);
+		
+		//added default @moshi
+		setAdjustRadarForRobotTurn(true);
 		turnRadarRightRadians(Double.POSITIVE_INFINITY);//ensures the radar keeps turning towards the right
 		setAdjustGunForRobotTurn(true); 
 		//added colors to use rgb values to suit red theme - @1myrtille
@@ -29,12 +30,9 @@ public class MarsBot extends AdvancedRobot
 		setScanColor(new Color(255, 255, 255)); //changed by @moshi
 		setBulletColor(new Color(128, 0 , 128)); //changed by @1myrtille
 		
-		 setMaxVelocity((12*Math.random())+12);
+		//@moshi
+		setMaxVelocity((12*Math.random())+12);
 		
-		// @moshi - created default values 
-		trackedRobot = null;
-		gunTurnAmount = 20;
-		setAdjustGunForRobotTurn(true); //this allows robot to freely turn it's gun
 		}
 
 	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
@@ -59,9 +57,9 @@ public class MarsBot extends AdvancedRobot
             setFire(3);//fire
         }
 	}
-	
+
+	//@Rashad
 	public void onHitRobot(HitRobotEvent hitRobotEvent){
-		
 		gunTurnAmount = robocode.util.Utils.normalRelativeAngleDegrees(hitRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurnAmount);
 		setFire(3);
@@ -70,7 +68,7 @@ public class MarsBot extends AdvancedRobot
 	//@1myrtille commented out turnLeft to fix not shooting bug(test)
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
-		direction=-direction;
+		direction=-direction; //@Rashad
 		// turnLeft(45);// @Rashad
 	
 	}
@@ -81,6 +79,8 @@ public class MarsBot extends AdvancedRobot
 	// 	back(20);
 	// 	// turnLeft(45);//@moshi
 	// }
+
+	//@Rashad
 	public voud onHitWall(HitWallEvent hitWallEvent){
 		direction=-direction;
 	}
