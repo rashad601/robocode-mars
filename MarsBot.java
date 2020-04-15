@@ -35,8 +35,6 @@ public class MarsBot extends AdvancedRobot
 		trackedRobot = null;
 		gunTurnAmount = 20;
 		setAdjustGunForRobotTurn(true); //this allows robot to freely turn it's gun
-		while(true) {
-			 
 		}
 
 	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
