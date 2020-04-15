@@ -1,4 +1,4 @@
-package Mars;
+package mars;
 import robocode.*;
 import java.awt.Color; //@1myrtille
 import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
@@ -67,7 +67,7 @@ public class MarsBot extends AdvancedRobot
 	}
 	//
 	//@Rashad
-	public void onHitWall (HitWallEvent)
+	public void onHitWall (HitWallEvent hitWallEvent)
 	{
 		//reverse direction
 		direction=-direction;
