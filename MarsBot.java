@@ -38,41 +38,7 @@ public class MarsBot extends AdvancedRobot
 		}
 
 	public void onScannedRobot(ScannedRobotEvent scannedRobotEvent) {
-		if (trackedRobot != null && !scannedRobotEvent.getName().equals(trackedRobot)) {
-			return;
-		}
-		if (trackedRobot == null) {
-			trackedRobot = scannedRobotEvent.getName();
-			//out.println("Tracking " + trackedRobot);
-		}
-		count = 0;
-		if (scannedRobotEvent.getDistance() > 150) {
-			gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
-			turnGunRight(gunTurnAmount);
-			turnRight(scannedRobotEvent.getBearing());
-			ahead(scannedRobotEvent.getDistance() - 160);
-			fire(2);
-			return;
-		}
-		gunTurnAmount = normalRelativeAngleDegrees(scannedRobotEvent.getBearing() + (getHeading() - getRadarHeading()));
-		turnGunRight(gunTurnAmount);
-		back(30);
 		
-		//@1myrtille changed the way bullet firing works(test)
-		fire(3);
-
-		//@1myrtille edited to fire even if the robot is too close
-		if (scannedRobotEvent.getDistance() < 100) {
-			if (scannedRobotEvent.getBearing() > -90 && scannedRobotEvent.getBearing() <= 90) {
-				back(40);
-				fire(2);
-			} else {
-				ahead(40);
-				fire(2);
-			}
-			fire(2);
-		}
-		scan();
 	}
 	
 	public void onHitRobot(HitRobotEvent hitRobotEvent){
@@ -96,6 +62,9 @@ public class MarsBot extends AdvancedRobot
 	// 	back(20);
 	// 	// turnLeft(45);//@moshi
 	// }
+	public voud onHitWall(HitWallEvent hitWallEvent){
+		direction=-direction;
+	}
 
 	//@Rashad
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
