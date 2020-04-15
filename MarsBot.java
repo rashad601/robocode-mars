@@ -86,7 +86,6 @@ public class MarsBot extends AdvancedRobot
 	public void onHitByBullet(HitByBulletEvent e) {
 		// Replace the next line with any behavior you would like
 		direction=-direction;
-		back(20);
 		// turnLeft(45);// @Rashad
 	
 	}
