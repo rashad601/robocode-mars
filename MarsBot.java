@@ -83,6 +83,13 @@ public class MarsBot extends AdvancedRobot
 		turnGunRight(gunTurnAmount);
 		setFire(3);
 	}
+	//
+	//@Rashad
+	public void onHitWall (HitWallEvent)
+	{
+		//reverse direction
+		direction=-direction;
+	}
 
 	//@1myrtille commented out turnLeft to fix not shooting bug(test)
 	public void onHitByBullet(HitByBulletEvent e) {
