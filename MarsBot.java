@@ -15,6 +15,7 @@ public class MarsBot extends AdvancedRobot
 	double gunTurnAmount;
 	String trackedRobot;
 	int direction = 1;
+	AdvancedEnemy enemy = new AdvancedEnemy();
 	
 	public void run() {
 		int direction = 1; //@1myrtille initial direction
