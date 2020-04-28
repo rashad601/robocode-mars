@@ -99,6 +99,13 @@ public class MarsBot extends AdvancedRobot
 		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
 
+	//@Rashad
+	double absoluteBearing(double x1, double y1, double x2, double y2){
+
+
+
+	}
+
 	//@moshi
 	//when we win,it does a litle wiggle
 	public void onWin(WinEvent winEvent){
