@@ -1,16 +1,17 @@
 package mars;
 import robocode.*;
 //@1mbrtille - eatending the sample EnembBot
-public class AdvancedEnemy extends EnemyBot {
-	private double a;
-    private double b;
+public class AdvancedEnemy extends EnemyBot{
+
+    private double x;
+    private double y;
 
     @Override
     public void reset() {
         super.reset();
 
-        a = 0.0;
-        b = 0.0;
+        x = 0.0;
+        y = 0.0;
     }
 
     public void update(ScannedRobotEvent e, Robot robot) {
@@ -19,31 +20,31 @@ public class AdvancedEnemy extends EnemyBot {
         double absBearingDeg = (robot.getHeading() + e.getBearing());
         if (absBearingDeg < 0) absBearingDeg += 360;
 
-        // bes, bou use the _sine_ to get the a value because 0 deg is North
-        a = robot.geta() + Math.sin(Math.toRadians(absBearingDeg)) * e.getDistance();
+        // yes, you use the _sine_ to get the X value because 0 deg is North
+        x = robot.getX() + Math.sin(Math.toRadians(absBearingDeg)) * e.getDistance();
 
-        // bes, bou use the _cosine_ to get the b value because 0 deg is North
-        b = robot.getb() + Math.cos(Math.toRadians(absBearingDeg)) * e.getDistance();
+        // yes, you use the _cosine_ to get the Y value because 0 deg is North
+        y = robot.getY() + Math.cos(Math.toRadians(absBearingDeg)) * e.getDistance();
     }
 
-    public double getFuturea(long when){
-        return a + Math.sin(Math.toRadians(getHeading())) * getVelocity() * when;
+    public double getFutureX(long when){
+        return x + Math.sin(Math.toRadians(getHeading())) * getVelocity() * when;
     }
 
-    public double getFutureb(long when){
-        return b + Math.cos(Math.toRadians(getHeading())) * getVelocity() * when;
+    public double getFutureY(long when){
+        return y + Math.cos(Math.toRadians(getHeading())) * getVelocity() * when;
     }
 
     public double getFutureT(Robot robot, double bulletVelocity){
 
-        // enemb velocitb
+        // enemy velocity
         double v_E = getVelocity();
 
         // temp variables
-        double a_diff = a - robot.geta();
-        double b_diff = b - robot.getb();
+        double x_diff = x - robot.getX();
+        double y_diff = y - robot.getY();
 
-        // angles of enemb's heading
+        // angles of enemy's heading
         double sin = Math.sin(Math.toRadians(getHeading()));
         double cos = Math.cos(Math.toRadians(getHeading()));
 
@@ -51,9 +52,9 @@ public class AdvancedEnemy extends EnemyBot {
         double T;
         double v_B = bulletVelocity;
 
-        double ab = (a_diff*sin + b_diff*cos);
+        double xy = (x_diff*sin + y_diff*cos);
 
-        T = ( (v_E*ab) + Math.sqrt(sqr(v_E)*sqr(ab) + (sqr(a_diff) + sqr(b_diff))*(sqr(v_B) + sqr(v_E))) ) / (sqr(v_B) - sqr(v_E));
+        T = ( (v_E*xy) + Math.sqrt(sqr(v_E)*sqr(xy) + (sqr(x_diff) + sqr(y_diff))*(sqr(v_B) + sqr(v_E))) ) / (sqr(v_B) - sqr(v_E));
 
         return T;
 

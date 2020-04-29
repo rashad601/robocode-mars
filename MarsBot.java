@@ -112,7 +112,7 @@ public class MarsBot extends AdvancedRobot
 		if (getGunHeat() == 0 && Math.abs(getGunTurnRemaining()) < 10) {
 			setFire(firePower);
 		}
-		}
+	}
 
 
 	//@Rashad
@@ -139,6 +139,7 @@ public class MarsBot extends AdvancedRobot
 		}
 
 		return bearing;
+	}
 
         // @rashad 
 	double normalizeBearing(double angle) {
@@ -146,7 +147,7 @@ public class MarsBot extends AdvancedRobot
 		while (angle < -180) angle += 360;
 		return angle;
 	}
-	}
+	
 
 	//@moshi
 	//when we win,it does a litle wiggle
