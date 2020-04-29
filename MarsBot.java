@@ -102,6 +102,7 @@ public class MarsBot extends AdvancedRobot
 		if (enemy.none())
 			return;
 		double firePower = Math.min(500 / enemy.getDistance(), 3);
+		double bulletSpeed = 20 - firePower * 3;
 	}
 
 
