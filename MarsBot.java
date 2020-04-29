@@ -2,6 +2,7 @@ package mars;
 import robocode.*;
 import java.awt.Color; //@1myrtille
 import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
+import java.awt.geom.Point2D; //@1myrtille
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
