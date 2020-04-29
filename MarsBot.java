@@ -102,16 +102,16 @@ public class MarsBot extends AdvancedRobot
 	//@Rashad
 	double absoluteBearing(double x1, double y1, double x2, double y2){
 
-     //2nd
+     
 		double xo = x2-x1;
 		double yo = y2-y1;
 
-		//3rd
+		
 		double hyp = Point2D.distance(x1, y1, x2, y2);
 		double arcSin = Math.toDegrees(Math.asin(xo / hyp));
 		double bearing = 0;
 
-	//4th
+	
 		if (xo > 0 && yo > 0) { // both pos: lower-Left
 			bearing = arcSin;
 		} else if (xo < 0 && yo > 0) { // x neg, y pos: lower-right
@@ -122,6 +122,7 @@ public class MarsBot extends AdvancedRobot
 			bearing = 180 - arcSin; // arcsin is negative here, actually 180 + ang
 		}
 
+		return bearing;
 
 	}
 
