@@ -107,6 +107,7 @@ public class MarsBot extends AdvancedRobot
 		double futureX = enemy.getFutureX(time);
 		double futureY = enemy.getFutureY(time);
 		double absDeg = absoluteBearing(getX(), getY(), futureX, futureY);
+		double absDeg = absoluteBearing(getX(), getY(), enemy.getX(), enemy.getY());
 		}
 
 
