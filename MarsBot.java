@@ -104,6 +104,7 @@ public class MarsBot extends AdvancedRobot
 		double firePower = Math.min(500 / enemy.getDistance(), 3);
 		double bulletSpeed = 20 - firePower * 3;
 		long time = (long)(enemy.getDistance() / bulletSpeed);
+		
 		double futureX = enemy.getFutureX(time);
 		double futureY = enemy.getFutureY(time);
 		double absDeg = absoluteBearing(getX(), getY(), futureX, futureY);
