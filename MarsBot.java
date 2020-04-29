@@ -2,7 +2,7 @@ package mars;
 import robocode.*;
 import java.awt.Color; //@1myrtille
 import static robocode.util.Utils.normalRelativeAngleDegrees; //@1myrtille
-import java.awt.geom.Point2D; //@1myrtille
+import java.awt.geom.Point2D; //1myrtille
 
 // API help : https://robocode.sourceforge.io/docs/robocode/robocode/Robot.html
 
@@ -90,10 +90,6 @@ public class MarsBot extends AdvancedRobot
 	// 	// turnLeft(45);//@moshi
 	// }
 
-	//@Rashad
-	public void onHitWall(HitWallEvent hitWallEvent){
-		direction=-direction;
-	}
 
 	//@Rashad
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
@@ -107,7 +103,7 @@ public class MarsBot extends AdvancedRobot
 		long time = (long)(enemy.getDistance() / bulletSpeed);
 		double futureX = enemy.getFutureX(time);
 		double futureY = enemy.getFutureY(time);
-		double absDeg = absoluteBearing(getX(), getY(), futureX, futureY);
+		//double absDeg = absoluteBearing(getX(), getY(), futureX, futureY);
 		double absDeg = absoluteBearing(getX(), getY(), enemy.getX(), enemy.getY());
 		setTurnGunRight(normalizeBearing(absDeg - getGunHeading()));
 		if (getGunHeat() == 0 && Math.abs(getGunTurnRemaining()) < 10) {
