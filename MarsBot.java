@@ -99,6 +99,8 @@ public class MarsBot extends AdvancedRobot
 		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
 	void doGun() {
+		if (enemy.none())
+			return;
 	}
 
 
