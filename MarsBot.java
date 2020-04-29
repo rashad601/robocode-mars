@@ -98,6 +98,9 @@ public class MarsBot extends AdvancedRobot
 	public void onRobotDeath(RobotDeathEvent robotDeathEvent){
 		out.println("FEEEL THE WRATH OF MARRRSSS PUNY BEINGGG" + robotDeathEvent.getName());
 	}	
+	void doGun() {
+	}
+
 
 	//@Rashad
 	double absoluteBearing(double x1, double y1, double x2, double y2){
