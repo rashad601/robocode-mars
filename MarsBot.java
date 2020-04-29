@@ -109,6 +109,9 @@ public class MarsBot extends AdvancedRobot
 		double absDeg = absoluteBearing(getX(), getY(), futureX, futureY);
 		double absDeg = absoluteBearing(getX(), getY(), enemy.getX(), enemy.getY());
 		setTurnGunRight(normalizeBearing(absDeg - getGunHeading()));
+		if (getGunHeat() == 0 && Math.abs(getGunTurnRemaining()) < 10) {
+			setFire(firePower);
+		}
 		}
 
 
