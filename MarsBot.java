@@ -129,6 +129,12 @@ public class MarsBot extends AdvancedRobot
 
 		return bearing;
 
+        // @rashad 
+	double normalizeBearing(double angle) {
+		while (angle >  180) angle -= 360;
+		while (angle < -180) angle += 360;
+		return angle;
+	}
 	}
 
 	//@moshi
