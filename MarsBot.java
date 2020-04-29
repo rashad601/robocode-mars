@@ -101,6 +101,7 @@ public class MarsBot extends AdvancedRobot
 	void doGun() {
 		if (enemy.none())
 			return;
+		double firePower = Math.min(500 / enemy.getDistance(), 3);
 	}
 
 
